@@ -26,3 +26,34 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+button {
+  color: #5e5e5e;
+  height: 2.5rem;
+  border: none;
+  font-size: 1.3rem;
+  border-bottom: 4px solid #ccc;
+  margin-left: .5rem;
+  cursor: pointer;
+}
+
+.tdl-task {
+  padding: .5rem;
+}
+
+.is-completed {
+  color: #5e5e5e;
+  text-decoration: line-through;
+}
+
+.tdl-input {
+  padding: .5rem;
+  margin: 1rem 0;
+  font-size: 1.3rem;
+}
+
+.mother-wrapper {
+  text-align: center;
+  font-size: 1.3rem;
+  background-color: #f3f3f3;
+}

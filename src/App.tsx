@@ -12,6 +12,14 @@ export default class App extends React.Component<{}, IState> {
     tasks: []
   }
 
+  public componentDidMount() {
+    document.title = 'TODO';
+  }
+
+  public componentDidUpdate() {
+    document.title = 'TODO';
+  }
+
   public handleInputChange = (event: any) => {
     event.preventDefault();
     event.persist();
@@ -72,27 +80,27 @@ export default class App extends React.Component<{}, IState> {
     } = this;
 
     return (
-      <div>
-        <h1>React TypeScript Todo list</h1>
+      <div className="mother-wrapper">
+        <h1>TODO</h1>
         <form onSubmit={handleSubmit}>
           <input
             type="text"
+            className="tdl-input"
             value={currentTask.title}
             onChange={handleInputChange}
             placeholder="Add a task"
           />
           <button type="submit">Add Task</button>
         </form>
-        <h2>TASKS</h2>
-        <br/>
-
+        <section>
           {tasks.map((task: ITask) => (
-            <div key={task.id} style={{display: 'flex', flexDirection: 'row'}}>
-              <span>{task.title}</span>
-              <button onClick={removeTask(task.id)} style={{ marginLeft: "20px" }}>Remove</button>
-              <button onClick={toggleDone(task.id)} style={{ marginLeft: "20px" }}>Done</button>
+            <div key={task.id} className="tdl-task">
+              <span className={task.completed ? 'is-completed' : ''}>{task.title}</span>
+              <button className="custom-button" onClick={removeTask(task.id)}>Remove</button>
+              <button className="custom-button" onClick={toggleDone(task.id)}>{task.completed ? 'Unfinish' : 'Finish'}</button>
             </div>
           ))}
+        </section>
       </div>
     );
   }
